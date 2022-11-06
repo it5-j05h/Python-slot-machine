@@ -1,25 +1,30 @@
+from os import system, name
+from time import sleep
 import random
 
-MAX_LINES = 3
-MAX_BET = 100
+MAX_LINES = 5
+MAX_BET = 1000
 MIN_BET = 1
 
-ROWS = 3
+ROWS = 5
 COLS = 4
 
 symbol_count = {
-    "£": 11,
-    "$": 11,
-    "%": 9,
-    "&": 7,
+    "£": 14,
+    "$": 12,
+    "%": 8,
+    "&": 6,
 }
 
 symbol_value = {
-    "£": 1,
-    "$": 2,
-    "%": 4,
-    "&": 8
+    "£": 2,
+    "$": 4,
+    "%": 8,
+    "&": 12
 }
+
+def screen_clear():
+		_ = system('clear')
 
 def check_winnings(columns, lines, bet, values):
     winnings = 0
@@ -98,7 +103,7 @@ def get_number_of_lines():
 
 def get_bet():
     while True:
-        amount = input("What would you like to bet on each line? ")
+        amount = input(f"What would you like to bet on each line? £")
         if amount.isdigit():
            amount = int(amount)
            if MIN_BET <= amount <= MAX_BET:
@@ -137,6 +142,7 @@ def main():
         print(f"Current balance is £{balance}")
         answer = input("Press enter to play (q to quit).")
         if answer == "q":
+            screen_clear()
             break
         balance += spin(balance)
 
