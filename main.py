@@ -1,5 +1,4 @@
-from os import system, name
-from time import sleep
+import os
 import random
 
 MAX_LINES = 5
@@ -23,8 +22,6 @@ symbol_value = {
     "&": 12
 }
 
-def screen_clear():
-		_ = system('clear')
 
 def check_winnings(columns, lines, bet, values):
     winnings = 0
@@ -141,8 +138,8 @@ def main():
     while True:
         print(f"Current balance is £{balance}")
         answer = input("Press enter to play (q to quit).")
+        os.system('cls')
         if answer == "q":
-            screen_clear()
             break
         balance += spin(balance)
 
