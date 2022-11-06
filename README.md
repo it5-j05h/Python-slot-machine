@@ -1,4 +1,4 @@
 # Python-slot-machine
-First dive into python
 
-Contact me for any more info :)
+This is a text based slot machine written in the python programing language.
+Enjoy :)
